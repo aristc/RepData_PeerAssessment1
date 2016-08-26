@@ -7,11 +7,11 @@ output: html_document
 
 ## Creating the dataset
 
-```{r setup, include=FALSE, fig.keep='asis'}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-``` {r, knitr::opts_chunk$set(echo = TRUE)}
+``` {r}
 df<-read.csv("activity.csv")
 head(df)
 tail(df)
@@ -44,7 +44,7 @@ bydate<- summarize(group_by(df_complete,date),steps=sum(steps))
 
 ### 2. Make a histogram of the total number of steps taken each day
 
-``` {r, fig.width=8, fig.height=6}
+``` {r fig.width=8, fig.height=6}
 
 hist(bydate$steps,col="light blue",xlab="Daily steps",main="Histogram of steps by date (1)",sub="(missing data removed)")
 
@@ -85,7 +85,7 @@ byinterval<-summarize(group_by(df_complete,interval),steps=mean(steps))
 
 Then we draw the line chart showing the average number of steps by interval.
 
-```  {r, fig.width=8, fig.height=6}
+```  {r fig.width=8, fig.height=6}
 
 plot(byinterval$interval,byinterval$steps,type="l",xlab="Interval",ylab="Average Daily Steps",col="dark blue")
 
@@ -179,7 +179,7 @@ daily_median_new
 
 Now we're going to compare the results for both datasets.
 
-```  {r, fig.width=8, fig.height=6}
+```  {r fig.width=8, fig.height=6}
 
 par(mfrow=c(1,2))
 hist(bydate$steps,col="light blue",xlab="Daily steps",main="Histogram of steps by date (1)",sub="(missing data removed)")
@@ -227,7 +227,7 @@ par(mfrow=c(1,1))
 
 ```
 
-```  {r, fig.width=8, fig.height=6}
+```  {r fig.width=8, fig.height=6}
 
 library(lattice)
 xyplot(steps~interval|date2,data=byinterval_new,type="l",layout=c(1,2),xlab = "Number of steps",ylab="Interval")
