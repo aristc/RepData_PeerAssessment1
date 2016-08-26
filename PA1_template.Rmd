@@ -1,13 +1,13 @@
 ---
 title: "Reproducible Research W2"
 author: "Clemence Aristide"
-date: "August 21, 2016"
+date: "August 26, 2016"
 output: html_document
 ---
 
 ## Creating the dataset
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, fig.keep='asis'}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -25,7 +25,7 @@ str(df)
 
 ### 1. Calculate the total number of steps taken per day
 
-We're going to create a dataset with no na values, grouped by date, where steps are aggregrated by their sum.
+We will create a dataset with no na values, grouped by date, where steps are aggregrated by their sum.
 
 First we load the dplyr package in order to use group_by.
 
