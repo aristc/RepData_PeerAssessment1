@@ -44,7 +44,7 @@ bydate<- summarize(group_by(df_complete,date),steps=sum(steps))
 
 ### 2. Make a histogram of the total number of steps taken each day
 
-``` {r}
+``` {r, fig.width=8, fig.height=6}
 
 hist(bydate$steps,col="light blue",xlab="Daily steps",main="Histogram of steps by date (1)",sub="(missing data removed)")
 
@@ -85,7 +85,7 @@ byinterval<-summarize(group_by(df_complete,interval),steps=mean(steps))
 
 Then we draw the line chart showing the average number of steps by interval.
 
-``` {r}
+```  {r, fig.width=8, fig.height=6}
 
 plot(byinterval$interval,byinterval$steps,type="l",xlab="Interval",ylab="Average Daily Steps",col="dark blue")
 
@@ -179,7 +179,7 @@ daily_median_new
 
 Now we're going to compare the results for both datasets.
 
-``` {r}
+```  {r, fig.width=8, fig.height=6}
 
 par(mfrow=c(1,2))
 hist(bydate$steps,col="light blue",xlab="Daily steps",main="Histogram of steps by date (1)",sub="(missing data removed)")
@@ -224,6 +224,10 @@ df_new$date2<-as.factor(df_new$date2)
 byinterval_new<-summarize(group_by(df_new,interval,date2),steps=mean(steps))
 
 par(mfrow=c(1,1))
+
+```
+
+```  {r, fig.width=8, fig.height=6}
 
 library(lattice)
 xyplot(steps~interval|date2,data=byinterval_new,type="l",layout=c(1,2),xlab = "Number of steps",ylab="Interval")
