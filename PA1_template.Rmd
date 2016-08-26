@@ -11,7 +11,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-``` {r}
+``` {r, knitr::opts_chunk$set(echo = TRUE)}
 df<-read.csv("activity.csv")
 head(df)
 tail(df)
